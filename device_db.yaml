@@ -3979,7 +3979,7 @@ SWITCH_NOVADIGITAL_TS0003:
   tuya_module: ZTU
   mcu_family: Telink
   mcu: TLSR8258
-  config_str: 785olaiq;ZTS-3W-CUSTOM;SD4u;RB5;ID3i;SC1u;RB4;ID7i;SC4u;RD2;IC0i;M;
+  config_str: 785olaiq;ZTS-3W-CUSTOM;SB6u;RB5;ID3i;SC1u;RB4;ID7i;SC4u;RD2;IC0i;M;
   alt_config_str: null
   old_manufacturer_names: null
   old_zb_models: null
