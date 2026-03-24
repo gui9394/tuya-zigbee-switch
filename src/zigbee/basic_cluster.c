@@ -43,6 +43,9 @@ void basic_cluster_callback_attr_write_trampoline(uint16_t attribute_id) {
     if (attribute_id == ZCL_ATTR_BASIC_MULTI_PRESS_RESET_COUNT) {
         device_params_set_multi_press_reset_count(g_multi_press_reset_count);
     }
+    // if (attribute_id == ZCL_ATTR_BASIC_INTERLOCKING_STATE) {
+    //     device_params_set_interlocking_state(g_interlocking_state);
+    // }
 }
 
 void basic_cluster_add_to_endpoint(zigbee_basic_cluster *cluster,
@@ -90,6 +93,9 @@ void basic_cluster_add_to_endpoint(zigbee_basic_cluster *cluster,
     endpoint->clusters[endpoint->cluster_count].attributes = cluster->attr_infos;
     endpoint->clusters[endpoint->cluster_count].is_server  = 1;
     endpoint->cluster_count++;
+
+    SETUP_ATTR(15, ZCL_ATTR_BASIC_INTERLOCKING_STATE, ZCL_DATA_TYPE_BOOLEAN, 
+               ATTR_WRITABLE, g_interlocking_state);
 
     device_params_load_from_nv();
     basic_cluster_load_attrs_from_nv();

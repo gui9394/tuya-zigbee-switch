@@ -1,6 +1,7 @@
 #include "relay_cluster.h"
 #include "cluster_common.h"
 #include "consts.h"
+// #include "device_config/device_params_nv.h"
 #include "device_config/nvm_items.h"
 #include "hal/nvm.h"
 #include "hal/printf_selector.h"
@@ -174,6 +175,15 @@ void sync_indicator_led(zigbee_relay_cluster *cluster) {
 }
 
 void relay_cluster_on(zigbee_relay_cluster *cluster) {
+    // if (g_interlocking_state) {
+    //     for (int i = 0; i < 10; i++) {
+    //         zigbee_relay_cluster *other_cluster = relay_cluster_by_endpoint[i];
+    //         if (other_cluster != NULL && other_cluster->relay_idx != cluster->relay_idx) {
+    //             relay_cluster_off(other_cluster);
+    //         }
+    //     }
+    // }
+
     relay_on(cluster->relay);
     sync_indicator_led(cluster);
 }
